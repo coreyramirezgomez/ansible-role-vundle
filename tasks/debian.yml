@@ -1,0 +1,5 @@
+---
+- name: Ensure ViM exists 
+  apt:
+    name: "vim"
+    state: present

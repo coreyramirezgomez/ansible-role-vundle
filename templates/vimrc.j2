@@ -1,0 +1,183 @@
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+{%if vundle_custom_plugin_path is defined %}
+call vundle#begin('{{ vundle_custom_plugin_path }}')
+{% else %}
+call vundle#begin()
+{% endif %}
+Plugin 'VundleVim/Vundle.vim'
+{% for plugin in vundle_plugins_github %}
+Plugin '{{ plugin }}'
+{% endfor %}
+{% for plugin in vundle_plugins_git_repo %}
+Plugin 'git://{{ plugin }}'
+{% endfor %}
+{% for plugin in vundle_plugins_local %}
+Plugin 'file://{{ plugin }}'
+{% endfor %}
+{% for plugin in vundle_plugins_script %}
+Plugin '{{ plugin.name }}', {'rtp': '{{ plugin.rtp }}'}
+{% endfor %}
+call vundle#end()
+{% if vundle_filetype_plugin_indent_on%}
+filetype plugin indent on
+{% else %}
+filetype plugin on
+{% endif %}
+{% if vundle_vim_option_autoindent %}
+set autoindent
+{% endif %}
+{% if vundle_vim_option_expandtab %}
+set expandtab
+{% endif %}
+{% if vundle_vim_option_shiftround %}
+set shiftround
+{% endif %}
+{% if vundle_vim_option_shiftwidth is defined %}
+set shiftwidth={{ vundle_vim_option_shiftwidth }}
+{% endif %}
+{% if vundle_vim_option_smarttab %}
+set smarttab
+{% endif %}
+{% if vundle_vim_option_tabstop is defined %}
+set tabstop={{ vundle_vim_option_tabstop }}
+{% endif %}
+{% if vundle_vim_option_hlsearch %}
+set hlsearch
+{% endif %}
+{% if vundle_vim_option_ignorecase %}
+set ignorecase
+{% endif %}
+{% if vundle_vim_option_incsearch %}
+set incsearch
+{% endif %}
+{% if vundle_vim_option_smartcase %}
+set smartcase
+{% endif %}
+{% if vundle_vim_option_complete is defined %}
+set complete-={{ vundle_vim_option_complete }}
+{% endif %}
+{% if vundle_vim_option_lazyredraw %}
+set lazyredraw
+{% endif %}
+{% if vundle_vim_option_display is defined %}
+set display+={{ vundle_vim_option_display }}
+{% endif %}
+{% if vundle_vim_option_encoding is defined %}
+set encoding={{ vundle_vim_option_encoding }}
+{% endif %}
+{% if vundle_vim_option_linebreak %}
+set linebreak
+{% endif %}
+{% if vundle_vim_option_scrolloff is defined %}
+set scrolloff={{ vundle_vim_option_scrolloff }}
+{% endif %}
+{% if vundle_vim_option_sidescrolloff is defined %}
+set sidescrolloff={{ vundle_vim_option_sidescrolloff }}
+{% endif %}
+{% if vundle_vim_option_syntax_enable %}
+syntax enable
+{% endif %}
+{% if vundle_vim_option_wrap %}
+set wrap
+{% endif %}
+{% if vundle_vim_option_laststatus is defined %}
+set laststatus={{ vundle_vim_option_laststatus }}
+{% endif %}
+{% if vundle_vim_option_ruler %}
+set ruler
+{% endif %}
+{% if vundle_vim_option_wildmenu %}
+set wildmenu
+{% endif %}
+{% if vundle_vim_option_tabpagemax is defined %}
+set tabpagemax={{ vundle_vim_option_tabpagemax }}
+{% endif %}
+{% if vundle_vim_option_colorscheme is defined %}
+colorscheme {{ vundle_vim_option_colorscheme }}
+{% endif %}
+{% if vundle_vim_option_cursorline %}
+set cursorline
+{% endif %}
+{% if vundle_vim_option_modifiable %}
+set modifiable
+{% endif %}
+{% if vundle_vim_option_number %}
+set number
+{% endif %}
+{% if vundle_vim_option_relativenumber %}
+set relativenumber
+{% endif %}
+{% if vundle_vim_option_noerrorbells %}
+set noerrorbells
+{% endif %}
+{% if vundle_vim_option_visualbell %}
+set visualbell
+{% endif %}
+{% if vundle_vim_option_mouse is defined %}
+set mouse={{ vundle_vim_option_mouse }}
+{% endif %}
+{% if vundle_vim_option_title %}
+set title
+{% endif %}
+{% if vundle_vim_option_background is defined %}
+set background={{ vundle_vim_option_background }}
+{% endif %}
+{% if vundle_vim_option_foldlevel is defined %}
+set foldlevel={{ vundle_vim_option_foldlevel }}
+{% endif %}
+{% if vundle_vim_option_foldmethod is defined %}
+set foldmethod={{ vundle_vim_option_foldmethod }}
+{% endif %}
+{% if vundle_vim_option_foldnestmax is defined %}
+set foldnestmax={{ vundle_vim_option_foldnestmax }}
+{% endif %}
+{% if vundle_vim_option_nofoldenable %}
+set nofoldenable
+{% endif %}
+{% if vundle_vim_option_autoread %}
+set autoread
+{% endif %}
+{% if vundle_vim_option_backspace is defined %}
+set backspace={{ vundle_vim_option_backspace }}
+{% endif %}
+{% if vundle_vim_option_backupdir is defined %}
+set backupdir={{ vundle_vim_option_backupdir }}
+{% endif %}
+{% if vundle_vim_option_confirm %}
+set confirm
+{% endif %}
+{% if vundle_vim_option_dir is defined %}
+set dir={{ vundle_vim_option_dir }}
+{% endif %}
+{% if vundle_vim_option_formatoptions is defined %}
+set formatoptions+={{ vundle_vim_option_formatoptions }}
+{% endif %}
+{% if vundle_vim_option_hidden %}
+set hidden
+{% endif %}
+{% if vundle_vim_option_history is defined %}
+set history={{ vundle_vim_option_history }}
+{% endif %}
+{% if vundle_vim_option_nomodeline %}
+set nomodeline
+{% endif %}
+{% if vundle_vim_option_noswapfile %}
+set noswapfile
+{% endif %}
+{% if vundle_vim_option_nrformats is defined %}
+set nrformats-={{ vundle_vim_option_nrformats }}
+{% endif %}
+{% if vundle_vim_option_shell %}
+set shell
+{% endif %}
+{% if vundle_vim_option_spell %}
+set spell
+{% endif %}
+{% if vundle_vim_option_wildignore is defined %}
+set wildignore={{ vundle_vim_option_wildignore }}
+{% endif %}
+{% if vundle_vim_options_custom is defined %}
+{{ vundle_vim_options_custom }}
+{% endif %}

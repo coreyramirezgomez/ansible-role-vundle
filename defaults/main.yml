@@ -1,0 +1,84 @@
+---
+# defaults file for ansible-role-vundle
+vundle_install_path: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
+vundle_config_path: "{{ ansible_env.HOME }}/.vimrc"
+# vundle_custom_plugin_path: ""
+vundle_plugins_github: []
+vundle_plugins_git_repo: []
+vundle_plugins_local: []
+vundle_plugins_script: []
+# [
+#   {
+#     'name': 'rstacruz/sparkup',
+#     'rtp': 'vim/',
+#   }
+# ]
+vundle_filetype_plugin_indent_on: false
+vundle_vim_options_custom: ""
+
+# Options from https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/
+
+# Indentation Options
+vundle_vim_option_autoindent: false
+vundle_vim_option_expandtab: false
+vundle_vim_option_shiftround: false
+vundle_vim_option_shiftwidth: ""
+vundle_vim_option_smarttab: false
+vundle_vim_option_tabstop: ""
+
+# Search Options
+vundle_vim_option_hlsearch: false
+vundle_vim_option_ignorecase: false
+vundle_vim_option_incsearch: false
+vundle_vim_option_smartcase: false
+
+# Performance Options
+vundle_vim_option_complete: "i"
+vundle_vim_option_lazyredraw: false
+
+# Text Rendering Options
+vundle_vim_option_display: "lastline"
+vundle_vim_option_encoding: "utf-8"
+vundle_vim_option_linebreak: false
+vundle_vim_option_scrolloff: 1
+vundle_vim_option_sidescrolloff: 5
+vundle_vim_option_syntax_enable: false
+vundle_vim_option_wrap: false
+
+# User Interface Options
+vundle_vim_option_laststatus: 2
+vundle_vim_option_ruler: false
+vundle_vim_option_wildmenu: false
+vundle_vim_option_tabpagemax: 50
+vundle_vim_option_colorscheme: "wombat256mod"
+vundle_vim_option_cursorline: false
+vundle_vim_option_modifiable: false
+vundle_vim_option_number: false
+vundle_vim_option_relativenumber: false
+vundle_vim_option_noerrorbells: false
+vundle_vim_option_visualbell: false
+vundle_vim_option_mouse: "a"
+vundle_vim_option_title: false
+vundle_vim_option_background: "dark"
+
+# Code Folding Options
+vundle_vim_option_foldlevel: 1
+vundle_vim_option_foldmethod: "indent"
+vundle_vim_option_foldnestmax: 3
+vundle_vim_option_nofoldenable: false
+
+# Miscellaneous Options
+vundle_vim_option_autoread: false
+vundle_vim_option_backspace: "indent,eol,start"
+vundle_vim_option_backupdir: "~/.cache/vim"
+vundle_vim_option_confirm: false
+vundle_vim_option_dir: "~/.cache/vim"
+vundle_vim_option_formatoptions: "j"
+vundle_vim_option_hidden: false
+vundle_vim_option_history: 1000
+vundle_vim_option_nomodeline: false
+vundle_vim_option_noswapfile: false
+vundle_vim_option_nrformats: "octal"
+vundle_vim_option_shell: false
+vundle_vim_option_spell: false
+vundle_vim_option_wildignore: ".pyc,.swp"

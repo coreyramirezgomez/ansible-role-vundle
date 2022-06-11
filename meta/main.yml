@@ -1,0 +1,27 @@
+---
+dependencies: []
+galaxy_info:
+  author: Corey Ramirez-Gomez
+  role_name: vundle
+  description: Install and configure vim via vundle.
+  license: MIT
+  min_ansible_version: 2.1
+  platforms:
+    - name: macOS
+      versions:
+        - Monterey
+        - Big-Sur
+        - Catalina
+        - Mojave
+        - High-Sierra
+        - Sierra
+    - name: Debian
+      versions:
+        - all
+    - name: EL
+      versions:
+        - all
+  galaxy_tags:
+    - vim
+    - vundle
+    - vi

@@ -1,0 +1,10 @@
+---
+- name: Get ViM binary status
+  stat:
+    path: "/usr/bin/vim"
+  register: vundle_vim_path
+
+- name: Check that ViM exists
+  fail:
+    msg: "ViM Missing!"
+  when: not vundle_vim_path.stat.exists

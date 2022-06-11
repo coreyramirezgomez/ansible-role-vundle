@@ -1,0 +1,5 @@
+---
+- name: Ensure ViM exists 
+  package:
+    name: "vim"
+    state: present

@@ -1,0 +1,54 @@
+---
+# tasks file for ansible-role-vundle
+- name: Run OS Specific Tasks
+  include: "{{ loop_var_file }}"
+  with_first_found:
+    - "{{ ansible_os_family | lower }}.yml"
+    - "default.yml"
+  loop_control:
+    loop_var: "loop_var_file"
+
+- name: Determine Vundle ownership variables
+  set_fact:
+    vundle_user: '{{ vundle_user | default(ansible_user_id) }}'
+    vundle_group: '{{ vundle_group | default(ansible_user_gid) }}'
+
+- name: Clone Vundle Package
+  git:
+    repo: "https://github.com/VundleVim/Vundle.vim.git"
+    dest: "{{ vundle_install_path }}"
+    update: yes
+
+- name: Ensure vim backupdir Exists
+  file:
+    path: "{{ vundle_vim_option_backupdir }}"
+    state: directory
+    owner: "{{ vundle_user }}"
+    group: "{{ vundle_group }}"    
+  when: "vundle_vim_option_backupdir is defined"
+
+- name: Ensure vim swap dir Exists
+  file:
+    path: "{{ vundle_vim_option_dir }}"
+    state: directory
+    owner: "{{ vundle_user }}"
+    group: "{{ vundle_group }}"    
+  when: "vundle_vim_option_dir is defined"
+
+- name: Ensure Proper Ownership
+  file:
+    path: "{{ vundle_install_path }}"
+    state: directory
+    owner: "{{ vundle_user }}"
+    group: "{{ vundle_group }}"
+    recurse: yes
+
+- name: Deploy Vundle Configuration
+  template:
+    src: "vimrc.j2"
+    dest: "{{ vundle_config_path }}"
+    owner: "{{ vundle_user }}"
+    group: "{{ vundle_group }}"
+
+- name: Initialize Vundle
+  shell: "vim +:PluginInstall +qall"
