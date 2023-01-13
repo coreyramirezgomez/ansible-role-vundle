@@ -43,12 +43,19 @@
     group: "{{ vundle_group }}"
     recurse: yes
 
-- name: Deploy Vundle Configuration
+- name: Install Plugins
   template:
-    src: "vimrc.j2"
+    src: "plugins.j2"
     dest: "{{ vundle_config_path }}"
     owner: "{{ vundle_user }}"
     group: "{{ vundle_group }}"
 
 - name: Initialize Vundle
   shell: "vim +:PluginInstall +qall"
+
+- name: Deploy Vundle Configuration
+  template:
+    src: "vimrc.j2"
+    dest: "{{ vundle_config_path }}"
+    owner: "{{ vundle_user }}"
+    group: "{{ vundle_group }}"

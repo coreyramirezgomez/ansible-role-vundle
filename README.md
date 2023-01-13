@@ -16,7 +16,7 @@ Most of the options are pulled from https://www.shortcutfoo.com/blog/top-50-vim-
 ```
     - hosts: localhost 
       roles:
-        - role: coreyramirezgomez.vundle
+        - role: crg.vundle
           vundle_vim_option_colorscheme: "neverland-darker"
           vundle_plugins_github:
             - "junegunn/fzf"

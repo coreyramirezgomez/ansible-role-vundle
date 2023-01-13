@@ -1,0 +1,22 @@
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+{%if vundle_custom_plugin_path is defined %}
+call vundle#begin('{{ vundle_custom_plugin_path }}')
+{% else %}
+call vundle#begin()
+{% endif %}
+Plugin 'VundleVim/Vundle.vim'
+{% for plugin in vundle_plugins_github %}
+Plugin '{{ plugin }}'
+{% endfor %}
+{% for plugin in vundle_plugins_git_repo %}
+Plugin 'git://{{ plugin }}'
+{% endfor %}
+{% for plugin in vundle_plugins_local %}
+Plugin 'file://{{ plugin }}'
+{% endfor %}
+{% for plugin in vundle_plugins_script %}
+Plugin '{{ plugin.name }}', {'rtp': '{{ plugin.rtp }}'}
+{% endfor %}
+call vundle#end()
